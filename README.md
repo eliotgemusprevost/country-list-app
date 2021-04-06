@@ -8,14 +8,14 @@ The project was generated CLI version 6.1.2.
 
 #### A few notes
 
- Had a little bit of time constraint to finish both project on time so I focused mostly on delevering something simple that work. With more time could have
- added tests on the service (on which we could add a few feature like retrieve specific country, etc) as well as more test on the countrylist component
+ Had a little bit of time constraint to finish both project on time so I focused mostly on delevering something simple that work. With more time I could have
+ added tests on the services (on which we could add a few feature like retrieve specific country, etc) as well as more tests on the countrylist component
  (filter, correctness of information, color format, etc.)
  
-Should work as is using those command.
-npm install
-ng build 
-ng serve
+Should work as is using those command :
+- npm install
+- ng build 
+- ng serve
 
 #### Development server
 
