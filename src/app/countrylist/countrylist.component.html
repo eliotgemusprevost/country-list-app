@@ -1,0 +1,34 @@
+<mat-progress-bar mode="buffer" *ngIf="loading"></mat-progress-bar>
+<div class="margin-container">
+    <mat-form-field>
+        <input matInput (keyup)="filterData($event.target.value)" placeholder="Search Country..">
+    </mat-form-field>
+    <div class="mat-elevation-z6 ">
+        <table mat-table *ngIf="!loading && dataSource.data.length" class="full-width-table" [dataSource]="dataSource" matSort >
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Country Name</th>
+                <td mat-cell *matCellDef="let row" >{{ row.name }}</td>
+            </ng-container>
+            <ng-container matColumnDef="population">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Population</th>
+              <td mat-cell *matCellDef="let row" [ngStyle]="{'color':row.population &lt; 	100000 ? 'red':'blue'}">{{ row.population }}</td>
+          </ng-container>
+            <ng-container matColumnDef="capital">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Capital</th>
+                <td mat-cell *matCellDef="let row">{{ row.capital }}</td>
+            </ng-container>
+            <ng-container matColumnDef="region">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Region</th>
+                <td mat-cell *matCellDef="let row">{{ row.region }}</td>
+            </ng-container>
+            <ng-container matColumnDef="flag">
+                <th mat-header-cell *matHeaderCellDef>Flag</th>
+                <td mat-cell *matCellDef="let row"><img [src]="row.flag" class="img-fluid img-tumb"></td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="COLUMNS"></tr>
+            <tr mat-row *matRowDef="let row; columns: COLUMNS;"></tr>
+        </table>
+        <mat-paginator [pageIndex]="0" [pageSize]="10"  showFirstLastButtons>
+        </mat-paginator>
+    </div>
+</div>
